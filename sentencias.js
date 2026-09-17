@@ -37,6 +37,8 @@ switch (a) {
         break;
 }
 
+
+
 // for 
 
 for(let i=0;i<a;i++){
@@ -70,7 +72,7 @@ let encontrado = false
 while (!encontrado){
   let contador=0
     for(let p of alumnos){
-    if (p == "a"){console.log("alumno encontrado")
+    if (p == "a"){console.log(encontrado)
         encontrado= true
     }
     else{contador+=1}
