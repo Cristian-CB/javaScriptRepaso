@@ -54,5 +54,57 @@ console.log();
 
 */
 // !== != 
-sdhg
+/* json */
+
+
+
+
+
+
+let persona1 = {nombre : "cristian",
+    edad: 18
+}
+
+let persona2 = {"nombre" : "cristian",
+    edad: 18
+}
+
+// no comillas llamada
+persona1.nombre
+
+persona1 ["nombre"]
+console.log(persona1 ["nombre"]);
+
+// comillas llamada 
+
+persona2 ["nombre "]
+
+let persona3 = {"nombre" : "cristian",
+    edad: 18 , esMayor: function(){
+
+        if (this.edad >=18){
+
+            console.log("es mayor de edad")
+        }
+        else{
+        console.log("es mayor de edad")}
+    }
+
+
+
+}
+// añadir 
+
+persona1.perro="perro"
+persona1["estudios"]= "daw"
+persona2["estudios"]= "daw"
+
+// borrar
+persona2.delete["estudios"]
+persona1.delete(estudios)
+
+
+
+
+
 
