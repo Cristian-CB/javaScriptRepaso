@@ -10,6 +10,7 @@
 const calcularPropina = (cuenta , propina)=> {
 
 resultado = cuenta * propina / 100
+resultado += cuenta
 return resultado
 
 }
@@ -59,6 +60,54 @@ else{console.log("buenas madrugadas "+ n)}
 * */ 
 
 
+const apkDescuento = (precio , descuento)=> {
+
+resultado = precio * descuento / 100
+precio-= resultado
+
+console.log(" precio con descuento " = descuento)
+
+
+}
+const calcularIva = (precio )=> {
+
+resultado = precio * 21 / 100
+
+precio += resultado
+
+
+console.log("precio con iva sin descuento " + precio  )
+return precio
+
+}
+
+const calcularIvaConDescuento= ( precio,descuento)=> {
+let precioConDescuento = apkDescuento(precioConDescuento)
+
+let resultado = calcularIva(precioConDescuento)
+
+
+console.log("precio con iva con  ddescuento "  + resultado )
+
+
+}
+
+
+
+const resumenCompra = (nombre,descuento,precio )=>{
+    console.log(nombre)
+    console.log("precio original " + precio)
+  let  precioDescuento= apkDescuento(precio,descuento)
+    calcularIvaConDescuento(precioDescuento)
+
+}
+
+let nombre = "cristian"
+let descuento = 10
+let precio =100
+
+
+console.log(resumenCompra(nombre,descuento.precio));
 
 
 
