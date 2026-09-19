@@ -5,11 +5,12 @@
 
 * */
 
+console.log("Ejercicio 1 ");
 
 
 const calcularPropina = (cuenta , propina)=> {
 
-resultado = cuenta * propina / 100
+let resultado = cuenta * propina / 100
 resultado += cuenta
 return resultado
 
@@ -18,31 +19,29 @@ return resultado
 
 for(let i =0 ; i < 3 ; i++ ){
     
-    let cuenta= Math.floor(Math.random * (200 - 50 + 1 )+50), propina= Math.floor(Math.random * (30 - 5 + 1 )+5)
-
-
-    console.log(calcularPropina(cuenta,propina))
-
+    let cuenta= Math.floor(Math.random() * (200 - 50 + 1 )+50), propina= Math.floor(Math.random () * (30 - 5 + 1 )+5)
+    console.log("Precio final = " + calcularPropina(cuenta,propina).toFixed(2))
 }
 
 /*
 * 2. Crea una función llamada saludar que reciba un nombre y una hora (del 0 al 23). Según
 * la hora debe devolver "Buenos días [NOMBRE]", "Buenas tardes [NOMBRE]",
 * "Buenas noches [NOMBRE]". Hazla con Arrow Functions.
-* */ 
+* */
+console.log("Ejercicio 2 "); 
 const saludar = (n,h)=>{
 
 
-if (h => 6 && 12 <= h ){console.log("buenos dias "+ n)}
-else if (h => 12 && 18 <= h ){console.log("buenas tardes  "+ n)}
-else if (h => 18 && 24 <= h ){console.log("buenas noches  "+ n)}
+if (h >= 6 && 12 >= h ){console.log("buenos dias "+ n)}
+else if (h >= 12 && 18 >= h ){console.log("buenas tardes  "+ n)}
+else if (h >= 18 && 24 >= h ){console.log("buenas noches  "+ n)}
 else{console.log("buenas madrugadas "+ n)}
 
 
 
 }
 
-
+saludar("cristian",21)
 
 
 
@@ -58,56 +57,59 @@ else{console.log("buenas madrugadas "+ n)}
 *     y muestre por consola el precio original, el precio con descuento y el precio
 *     final con IVA
 * */ 
-
+console.log("Ejercicio 3 ");
 
 const apkDescuento = (precio , descuento)=> {
-
-resultado = precio * descuento / 100
-precio-= resultado
-
-console.log(" precio con descuento " = descuento)
-
-
-}
-const calcularIva = (precio )=> {
-
-resultado = precio * 21 / 100
-
-precio += resultado
-
-
-console.log("precio con iva sin descuento " + precio  )
+let operacion = precio * descuento / 100
+precio-= operacion
 return precio
-
 }
 
-const calcularIvaConDescuento= ( precio,descuento)=> {
-let precioConDescuento = apkDescuento(precioConDescuento)
-
-let resultado = calcularIva(precioConDescuento)
 
 
-console.log("precio con iva con  ddescuento "  + resultado )
+
+const calcularIva = (precio )=> {
+let operacion = precio * 21 / 100
+precio += operacion
+return precio
+}
 
 
+
+
+
+
+
+const calcularIvaConDescuento= (precio)=> {
+
+let resultado = calcularIva(precio)
+
+return resultado
 }
 
 
 
 const resumenCompra = (nombre,descuento,precio )=>{
-    console.log(nombre)
-    console.log("precio original " + precio)
-  let  precioDescuento= apkDescuento(precio,descuento)
-    calcularIvaConDescuento(precioDescuento)
+    console.log("nombre: "+nombre)
+    console.log("precio original = " + precio)
+
+    let precioDescuento = apkDescuento(precio,descuento)
+    console.log("Precio con descuento (sin iva) =  " + precioDescuento);
+
+    let precioConIva = calcularIva(precio)
+    console.log("precio con iva  = " + precioConIva);
+
+    let precioConIvaDescuento = calcularIvaConDescuento(precioDescuento)
+    console.log("Precio con iva y descuento " + precioConIvaDescuento);
+
 
 }
 
-let nombre = "cristian"
-let descuento = 10
-let precio =100
+let persona = {
+nombre:"Cristian",descuento: 10 , precio:100
 
-
-console.log(resumenCompra(nombre,descuento.precio));
+}
+resumenCompra(persona.nombre,persona.descuento, persona.precio)
 
 
 
