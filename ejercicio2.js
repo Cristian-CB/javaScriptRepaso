@@ -92,13 +92,6 @@ function pintarFoto() {
     imagen.src= "images.jpg"
 
     document.getElementById("contenedor").appendChild(imagen)
-    
-    
-
-
-
-
-    
 }
 
 else{

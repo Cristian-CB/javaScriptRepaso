@@ -77,9 +77,6 @@ return precio
 
 
 
-
-
-
 const calcularIvaConDescuento= (precio)=> {
 
 let resultado = calcularIva(precio)
@@ -129,6 +126,69 @@ resumenCompra(persona.nombre,persona.descuento, persona.precio)
 * promedio es >= 5.
 * */ 
 
+console.log("Ejercicio 4 ");
+
+
+
+
+
+
+const CalcularMedia=(nombre,...notas)=>{
+
+let suma = 0;
+for(let nota of notas){
+
+ suma+= nota
+
+}
+let media = (suma / notas.length).toFixed(2)
+
+
+
+console.log("Notas " + notas)
+
+if (media >= 5 ) {
+
+    console.log(nombre + " -Promedio: "+ media +" - Aprobado " );
+}
+else{
+    console.log(nombre + " -Promedio: "+ media +" - Suspenso " );
+}
+
+
+}
+
+let notas=[]
+
+let numeroRandom = Math.floor(Math.random()*(10 - 3 + 1) + 3) 
+
+for(let i =0;i< numeroRandom; i ++ ){
+    
+   notas.push(Math.floor(Math.random()*(10  + 1) ) )
+
+}
+
+ 
+
+CalcularMedia(persona["nombre"],...notas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -145,3 +205,39 @@ resumenCompra(persona.nombre,persona.descuento, persona.precio)
 *   3. Zumo
 * */ 
 
+
+console.log("Ejercicio 5");
+
+const pedido = (cliente,...varios) =>{
+console.log("nombre : " + cliente);
+for(let i= 0; i<varios.length;i ++ ){
+
+console.log(i+1 + ".", varios[i]);
+}
+}
+let cliente ="Marta"
+pedido(cliente,"cafe","tostada","zumo")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
