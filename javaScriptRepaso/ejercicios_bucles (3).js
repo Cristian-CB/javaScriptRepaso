@@ -137,14 +137,17 @@
  *    - Usa reverse (sin mutar el original) para mostrar los partidos
  *      de la última jornada a la primera.
  *
- * - Usa map para añadir a cada partido una propiedad "resultado":
- *        "Victoria local" si golesLocal > golesVisitante
- *        "Victoria visitante" si golesLocal < golesVisitante
- *        "Empate" si son iguales.
  * 
  * */
+
+     const separator = ()=>{console.log("\n \n ");
+     }
+     console.log("Ejercicio 9 ");
+     
+
+
 const partidos = [
-      { local: "Barcelona",  visitante: "Madrid",    golesLocal: 3, golesVisitante: 1, jornada: 1,  },
+      { local: "Barcelona",  visitante: "Madrid",    golesLocal: 3, golesVisitante: 1, jornada: 1, },
       { local: "Sevilla",    visitante: "Valencia",  golesLocal: 1, golesVisitante: 1, jornada: 1 },
       { local: "Atlético",   visitante: "Villarreal",golesLocal: 2, golesVisitante: 0, jornada: 1 },
       { local: "Betis",      visitante: "Getafe",    golesLocal: 0, golesVisitante: 1, jornada: 2 },
@@ -159,22 +162,89 @@ const partidos = [
            return {...partido , resultado:"victoria Local"}
             
       }
-      else
-      {
+      else if (partido ["golesLocal"]=== partido["golesVisitante"]) {
+           return{ ...partido , resultado:"empate "}
+      } else {    
            return{ ...partido , resultado:"victoria Local"}
       }
      }
      )
+console.log(partidos1);
+
+     separator()
 
 
-     const jornadados =partidos.filter(partido=>partido["jornada"]> 1)
+     const jornadados =partidos.filter(partido=>partido["jornada"]=== 2)
+     console.log(jornadados);
+     separator()
 
+ sumaGoles = partidos.reduce((acumulador,partido)=> 
 
-     partidos1.forEach(partido=> 
-      console.log(partido["local"]+ "goles --> " + partido["golesLocal"] + partido["local"]+ "goles --> " + partido["golesLocal"]))
-      
+    
+     (partido["golesLocal"]+partido["golesVisitante"]) + acumulador
      
+ ,0)
+console.log("La suma total de goles es :  " , Number(sumaGoles));
+separator()
 
+
+
+
+
+
+     partidos1.forEach(partido => {
+
+          if (partido.golesLocal > partido.golesVisitante) {
+               resultado = 1
+          }
+          else if(partido.golesLocal <partido.golesVisitante) {
+               
+               resultado = 2
+          } else {
+               resultado = "X"
+               
+          }
+
+
+               console.log(partido["local"]+ " " + partido["golesLocal"] + " - " +partido["golesVisitante"]+ " " + partido["visitante"] + " → " + resultado)})
+               separator()
+
+      
+    
+
+
+ const primerPartido = partidos.find(partidos=> partidos.local || partidos.visitante === "Madrid"    )
+console.log(primerPartido);
+
+separator()
+
+
+
+
+
+
+
+const masDeCuatroGoles = partidos.some(parido => parido.golesLocal+parido.golesVisitante > 4)
+
+masDeCuatroGoles ? console.log("Si hay partidos con mas de 4 goles en total" ): console.log("no  hay partidos con mas de 4 goles en total" );
+
+
+
+
+const jornada1 = partidos.filter(partido => partido["jornada"]===1)
+const golesJornada1 = partidos.every(partido => partido.golesLocal + partido.golesVisitante > 0)
+
+golesJornada1 ? console.log("si, todos los partidos de la jornada 1 tuvieron al menos un gol"):console.log("no, todos los partidos de la jornada 1 tuvieron un gol " );
+
+const nuevosPartidos = partidos.with(3,{...partidos[3],
+     golesLocal:1
+})
+console.log(nuevosPartidos);
+
+
+const vuelta = partidos.toReversed()
+console.log(vuelta);
+console.log(partidos);
 
 
 /*
