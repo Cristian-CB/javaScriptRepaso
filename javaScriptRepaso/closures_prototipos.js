@@ -143,25 +143,67 @@ calculadora1.sumar(50)
 *
 * */
 
+const usuarios = [
+    {
+        usuario: "juan",
+        contraseña: "1234"
+    },
+    {
+        usuario: "ana",
+        contraseña: "1111"
+    },
+    {
+        usuario: "pedro",
+        contraseña: "2222"
+    },
+    {
+        usuario: "lucia",
+        contraseña: "3333"
+    },
+    {
+        usuario: "carlos",
+        contraseña: "0000"
+    }
+];
 
 
-function Login() {
-    this.usuario = "hola"
-    this.contraseña = "hola"
+
+
+
+
+
+
+function Login(usuarios) {
+    this.usuarioAceptado;
     this.intentos = 3
     this.correcta = false
-    this.bloqueado="hola"
+   this.bloqueado = JSON.parse(localStorage.getItem("bloqueado")) || []
+    this.userAcept = false;
+    this.limpiar =false;
 }
 
 Login.prototype.VerificarUsuario = function () {
-    while (this.intentos > 0 && !this.correcta && this.bloqueado!=this.usuario) {
-        let usuario = prompt("cual es tu usuario ")
-        if (this.usuario != usuario) {
+    while (this.intentos > 0 && !this.correcta && !this.bloqueado.includes(this.usuarioAceptado)&& !this.limpiar) {
+        if(!this.userAcept){
+            let usuario = prompt("cual es tu usuario ")
+            if (usuario==1) {
+                 console.log("ENTRA AQUÍ")
+                localStorage.clear()
+                this.limpiar = true
+                
+            }else{
+        if (!usuarios.some(u=> u.usuario == usuario)) {
             this.intentos -= 1
         }
+        else{this.userAcept = true
+            this.usuarioAceptado= usuario
+
+        }}
+    
+    }
         else {
             let contraseña = prompt("cual es tu contraseña")
-            if (this.contraseña != contraseña) { this.intentos -= 1 }
+            if (!usuarios.some(u=>u.usuario==this.usuarioAceptado && contraseña==u.contraseña)) { this.intentos -= 1 }
             else {
 
                 console.log("Contraseña correcta ");
@@ -172,23 +214,129 @@ Login.prototype.VerificarUsuario = function () {
         }
 
     }
-    if(!this.correcta || this.bloqueado==this.usuario){
+    if(!this.correcta && !this.limpiar){
+        this.bloqueado.push(this.usuarioAceptado)
+         localStorage.setItem("bloqueado", JSON.stringify(this.bloqueado))
+
     console.log("usuario bloqueadoo");
     
-    return this.correcta}
+   }
+}
+
+
+Login.prototype.mostrarBloqueados = function() {
+    alert("usuarios bloqueados = "+ this.bloqueado)
+    
 }
 
 
 
-Login.prototype.bloquear=function(){this.bloqueado=this.usuario
-    console.log("asfasfas" + this.bloqueado);
-}
 const login = new Login()
 
-if (!login.VerificarUsuario()){
+login.VerificarUsuario(usuarios)
 
-    login.bloquear()
-}
+   login.mostrarBloqueados()
+
+
+
+
+
+//const usuarios = [
+    //"juan",
+   // "ana",
+   // "pedro"
+//];
+
+//localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+
+
+// Cuando recuperamos el dato con getItem(),
+// obtenemos un STRING.
+//
+// Para volver a convertirlo en un array usamos
+// JSON.parse().
+
+//let usuariosGuardados = JSON.parse(
+  //  localStorage.getItem("usuarios")
+//);
+
+//console.log(usuariosGuardados);
+
+
+
+// Convierte un ARRAY u OBJETO → STRING
+
+//let array = ["juan", "ana", "pedro"];
+
+//let texto = JSON.stringify(array);
+
+//console.log(texto);
+
+// Resultado:
+// ["juan","ana","pedro"]
+
+
+
+
+// Convierte un STRING → ARRAY u OBJETO
+
+//let texto2 = '["juan","ana","pedro"]';
+
+//let array2 = JSON.parse(texto2);
+
+//console.log(array2);
+
+
+// Si no existe "usuarios" en localStorage,
+// getItem() devuelve null.
+//
+// Con || [] hacemos que, si no existe,
+// se cree un array vacío.
+
+//let usuarios2 =
+    //JSON.parse(localStorage.getItem("usuarios")) || [];
+
+//console.log(usuarios2);
+
+
+
+
+//let bloqueados =
+    //JSON.parse(localStorage.getItem("bloqueado")) || [];
+
+
+// Añadimos un usuario al array
+//bloqueados.push("juan");
+
+
+// Guardamos el array actualizado
+//localStorage.setItem(
+  //  "bloqueado",
+    //JSON.stringify(bloqueados)
+//);
+
+
+//resumen
+
+// GUARDAR
+//localStorage.setItem("clave", "valor");
+
+// OBTENER
+//localStorage.getItem("clave");
+
+// ELIMINAR UNO
+//localStorage.removeItem("clave");
+
+// ELIMINAR TODO
+//localStorage.clear();
+
+// ARRAY/OBJETO → STRING
+//JSON.stringify();
+
+// STRING → ARRAY/OBJETO
+//JSON.parse();
+
 
 
 
