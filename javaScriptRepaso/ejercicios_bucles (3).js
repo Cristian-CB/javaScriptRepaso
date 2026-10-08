@@ -140,51 +140,52 @@
  * 
  * */
 
-     const separator = ()=>{console.log("\n \n ");
-     }
-     console.log("Ejercicio 9 ");
-     
+const separator = () => {
+     console.log("\n \n ");
+}
+console.log("Ejercicio 9 ");
+
 
 
 const partidos = [
-      { local: "Barcelona",  visitante: "Madrid",    golesLocal: 3, golesVisitante: 1, jornada: 1, },
-      { local: "Sevilla",    visitante: "Valencia",  golesLocal: 1, golesVisitante: 1, jornada: 1 },
-      { local: "Atlético",   visitante: "Villarreal",golesLocal: 2, golesVisitante: 0, jornada: 1 },
-      { local: "Betis",      visitante: "Getafe",    golesLocal: 0, golesVisitante: 1, jornada: 2 },
-      { local: "Madrid",     visitante: "Atlético",  golesLocal: 2, golesVisitante: 2, jornada: 2 },
-      { local: "Valencia",   visitante: "Barcelona", golesLocal: 1, golesVisitante: 4, jornada: 2 },
-     ];
+     { local: "Barcelona", visitante: "Madrid", golesLocal: 3, golesVisitante: 1, jornada: 1, },
+     { local: "Sevilla", visitante: "Valencia", golesLocal: 1, golesVisitante: 1, jornada: 1 },
+     { local: "Atlético", visitante: "Villarreal", golesLocal: 2, golesVisitante: 0, jornada: 1 },
+     { local: "Betis", visitante: "Getafe", golesLocal: 0, golesVisitante: 1, jornada: 2 },
+     { local: "Madrid", visitante: "Atlético", golesLocal: 2, golesVisitante: 2, jornada: 2 },
+     { local: "Valencia", visitante: "Barcelona", golesLocal: 1, golesVisitante: 4, jornada: 2 },
+];
 
 
-     const partidos1 = partidos.map(partido => {
-     
-      if (partido["golesLocal"] > partido["golesVisitante"]) {
-           return {...partido , resultado:"victoria Local"}
-            
-      }
-      else if (partido ["golesLocal"]=== partido["golesVisitante"]) {
-           return{ ...partido , resultado:"empate "}
-      } else {    
-           return{ ...partido , resultado:"victoria Local"}
-      }
+const partidos1 = partidos.map(partido => {
+
+     if (partido["golesLocal"] > partido["golesVisitante"]) {
+          return { ...partido, resultado: "victoria Local" }
+
      }
-     )
+     else if (partido["golesLocal"] === partido["golesVisitante"]) {
+          return { ...partido, resultado: "empate " }
+     } else {
+          return { ...partido, resultado: "victoria Local" }
+     }
+}
+)
 console.log(partidos1);
 
-     separator()
+separator()
 
 
-     const jornadados =partidos.filter(partido=>partido["jornada"]=== 2)
-     console.log(jornadados);
-     separator()
+const jornadados = partidos.filter(partido => partido["jornada"] === 2)
+console.log(jornadados);
+separator()
 
- sumaGoles = partidos.reduce((acumulador,partido)=> 
+sumaGoles = partidos.reduce((acumulador, partido) =>
 
-    
-     (partido["golesLocal"]+partido["golesVisitante"]) + acumulador
-     
- ,0)
-console.log("La suma total de goles es :  " , Number(sumaGoles));
+
+     (partido["golesLocal"] + partido["golesVisitante"]) + acumulador
+
+     , 0)
+console.log("La suma total de goles es :  ", Number(sumaGoles));
 separator()
 
 
@@ -192,28 +193,29 @@ separator()
 
 
 
-     partidos1.forEach(partido => {
+partidos1.forEach(partido => {
 
-          if (partido.golesLocal > partido.golesVisitante) {
-               resultado = 1
-          }
-          else if(partido.golesLocal <partido.golesVisitante) {
-               
-               resultado = 2
-          } else {
-               resultado = "X"
-               
-          }
+     if (partido.golesLocal > partido.golesVisitante) {
+          resultado = 1
+     }
+     else if (partido.golesLocal < partido.golesVisitante) {
 
+          resultado = 2
+     } else {
+          resultado = "X"
 
-               console.log(partido["local"]+ " " + partido["golesLocal"] + " - " +partido["golesVisitante"]+ " " + partido["visitante"] + " → " + resultado)})
-               separator()
-
-      
-    
+     }
 
 
- const primerPartido = partidos.find(partidos=> partidos.local || partidos.visitante === "Madrid"    )
+     console.log(partido["local"] + " " + partido["golesLocal"] + " - " + partido["golesVisitante"] + " " + partido["visitante"] + " → " + resultado)
+})
+separator()
+
+
+
+
+
+const primerPartido = partidos.find(partidos => partidos.local || partidos.visitante === "Madrid")
 console.log(primerPartido);
 
 separator()
@@ -224,20 +226,21 @@ separator()
 
 
 
-const masDeCuatroGoles = partidos.some(parido => parido.golesLocal+parido.golesVisitante > 4)
+const masDeCuatroGoles = partidos.some(parido => parido.golesLocal + parido.golesVisitante > 4)
 
-masDeCuatroGoles ? console.log("Si hay partidos con mas de 4 goles en total" ): console.log("no  hay partidos con mas de 4 goles en total" );
-
-
+masDeCuatroGoles ? console.log("Si hay partidos con mas de 4 goles en total") : console.log("no  hay partidos con mas de 4 goles en total");
 
 
-const jornada1 = partidos.filter(partido => partido["jornada"]===1)
+
+
+const jornada1 = partidos.filter(partido => partido["jornada"] === 1)
 const golesJornada1 = partidos.every(partido => partido.golesLocal + partido.golesVisitante > 0)
 
-golesJornada1 ? console.log("si, todos los partidos de la jornada 1 tuvieron al menos un gol"):console.log("no, todos los partidos de la jornada 1 tuvieron un gol " );
+golesJornada1 ? console.log("si, todos los partidos de la jornada 1 tuvieron al menos un gol") : console.log("no, todos los partidos de la jornada 1 tuvieron un gol ");
 
-const nuevosPartidos = partidos.with(3,{...partidos[3],
-     golesLocal:1
+const nuevosPartidos = partidos.with(3, {
+     ...partidos[3],
+     golesLocal: 1
 })
 console.log(nuevosPartidos);
 
@@ -246,6 +249,8 @@ const vuelta = partidos.toReversed()
 console.log(vuelta);
 console.log(partidos);
 
+separator()
+console.log("Ej 10:");
 
 /*
  * 10. Gestión de alumnos con notas por asignatura
@@ -340,72 +345,111 @@ console.log(partidos);
 
 
 const alumnos = [
-      {
-         nombre: "Carmen",
-         asignaturas: [
-           { nombre: "Matemáticas", nota: 7.5 },
-           { nombre: "Lengua",      nota: 8.0 },
-          { nombre: "Historia",    nota: 6.5 },
-           { nombre: "Inglés",      nota: 9.0 },
-        ]
-       },
-       {
-        nombre: "Roberto",
-        asignaturas: [
-           { nombre: "Matemáticas", nota: 4.0 },
-           { nombre: "Lengua",      nota: 5.5 },
-           { nombre: "Historia",    nota: 3.5 },
-           { nombre: "Inglés",      nota: 6.0 },
-         ]
-       },
-       {
-         nombre: "Elena",
-         asignaturas: [
-           { nombre: "Matemáticas", nota: 9.5 },
-           { nombre: "Lengua",      nota: 8.5 },
-           { nombre: "Historia",    nota: 9.0 },
-           { nombre: "Inglés",      nota: 8.0 },
-         ]
-       },
-       {
-         nombre: "David",
-        asignaturas: [
-           { nombre: "Matemáticas", nota: 5.0 },
-           { nombre: "Lengua",      nota: 4.5 },
-           { nombre: "Historia",    nota: 6.0 },
-           { nombre: "Inglés",      nota: 5.5 },
-         ]
-       },
-       {
-         nombre: "Isabel",
-         asignaturas: [
-          { nombre: "Matemáticas", nota: 6.0 },
-           { nombre: "Lengua",      nota: 7.0 },
-           { nombre: "Historia",    nota: 5.5 },
-           { nombre: "Inglés",      nota: 7.5 },
-         ]
-       },
-    ];
+     {
+          nombre: "Carmen",
+          asignaturas: [
+               { nombre: "Matemáticas", nota: 7.5 },
+               { nombre: "Lengua", nota: 8.0 },
+               { nombre: "Historia", nota: 6.5 },
+               { nombre: "Inglés", nota: 9.0 },
+          ]
+     },
+     {
+          nombre: "Roberto",
+          asignaturas: [
+               { nombre: "Matemáticas", nota: 4.0 },
+               { nombre: "Lengua", nota: 5.5 },
+               { nombre: "Historia", nota: 3.5 },
+               { nombre: "Inglés", nota: 6.0 },
+          ]
+     },
+     {
+          nombre: "Elena",
+          asignaturas: [
+               { nombre: "Matemáticas", nota: 9.5 },
+               { nombre: "Lengua", nota: 8.5 },
+               { nombre: "Historia", nota: 9.0 },
+               { nombre: "Inglés", nota: 8.0 },
+          ]
+     },
+     {
+          nombre: "David",
+          asignaturas: [
+               { nombre: "Matemáticas", nota: 5.0 },
+               { nombre: "Lengua", nota: 4.5 },
+               { nombre: "Historia", nota: 6.0 },
+               { nombre: "Inglés", nota: 5.5 },
+          ]
+     },
+     {
+          nombre: "Isabel",
+          asignaturas: [
+               { nombre: "Matemáticas", nota: 6.0 },
+               { nombre: "Lengua", nota: 7.0 },
+               { nombre: "Historia", nota: 5.5 },
+               { nombre: "Inglés", nota: 7.5 },
+          ]
+     },
+];
 
 
 
 
-     console.log(alumnos[0].nombre);
-      
+console.log(alumnos[0].nombre);
 
 
 
-const nAlumnos = alumnos.map(alumno =>{
-     
-     let  notas = alumno.asignaturas.reduce((acumulador, item) => item.nota+ acumulador ,0 )
-     notas/=  alumno.asignaturas.length
-     
-     return{
 
-    
-     nombre: alumno.nombre,
-     promedio : notas
+const nAlumnos = alumnos.map(alumno => {
 
-}})
+     let notas = alumno.asignaturas.reduce((acumulador, item) => item.nota + acumulador, 0)
+     notas /= alumno.asignaturas.length
+
+     return {
+
+
+          nombre: alumno.nombre,
+          promedio: notas
+
+     }
+})
 
 console.log(nAlumnos);
+
+
+const aprobados = nAlumnos.filter(a=> a.promedio > 5 )
+
+console.log("alumnos aprobados = " , aprobados);
+
+separator( )
+const suspenso = alumnos.filter(s => s.asignaturas.some(a => a.nota < 5 ))
+for(let s of suspenso){
+     for(let nota of s.asignaturas){
+          if (nota.nota < 4 ) {
+               console.log(s.nombre + " : ", nota.nombre);
+               
+               
+          }
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
