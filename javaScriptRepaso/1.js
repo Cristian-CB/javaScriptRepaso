@@ -5,18 +5,15 @@
 // ============================================================
 
 
+
+const playlist = [
+{ titulo: "Bohemian Rhapsody", artista: "Queen",      duracion: 354, reproducciones: 1200 },
+{ titulo: "Blinding Lights",   artista: "The Weeknd", duracion: 200, reproducciones: 980  },
+{ titulo: "Shape of You",      artista: "Ed Sheeran", duracion: 234, reproducciones: 1500 },
+{ titulo: "Hotel California",  artista: "Eagles",     duracion: 391, reproducciones: 870  },
+{ titulo: "Levitating",        artista: "Dua Lipa",   duracion: 203, reproducciones: 620  },
+{ titulo: "Smells Like Teen",  artista: "Nirvana",    duracion: 301, reproducciones: 1100 },];
 /*
- * 6. Gestión de una playlist de música
- *
- *    const playlist = [
- *      { titulo: "Bohemian Rhapsody", artista: "Queen",      duracion: 354, reproducciones: 1200 },
- *      { titulo: "Blinding Lights",   artista: "The Weeknd", duracion: 200, reproducciones: 980  },
- *      { titulo: "Shape of You",      artista: "Ed Sheeran", duracion: 234, reproducciones: 1500 },
- *      { titulo: "Hotel California",  artista: "Eagles",     duracion: 391, reproducciones: 870  },
- *      { titulo: "Levitating",        artista: "Dua Lipa",   duracion: 203, reproducciones: 620  },
- *      { titulo: "Smells Like Teen",  artista: "Nirvana",    duracion: 301, reproducciones: 1100 },
- *    ];
- *
  *    - Usa forEach para mostrar cada canción: "Queen — Bohemian Rhapsody".
  *    - Usa filter para obtener las canciones con más de 1000 reproducciones.
  *    - Usa map para crear un nuevo array con los títulos en mayúsculas
@@ -31,6 +28,17 @@
  *      Pista: primero extrae los títulos con map.
  *
  * */
+
+     array.forEach(element => {
+          
+     });
+
+
+
+
+
+
+
 
 
 /*
