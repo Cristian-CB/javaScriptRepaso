@@ -29,9 +29,7 @@ const playlist = [
  *
  * */
 
-     array.forEach(element => {
-          
-     });
+    
 
 
 
@@ -41,18 +39,16 @@ const playlist = [
 
 
 
-/*
- * 7. Sistema de pedidos de un restaurante
- *
- *    const pedidos = [
- *      { id: 1, cliente: "Ana",   plato: "Paella",      precio: 14.50, listo: true  },
- *      { id: 2, cliente: "Luis",  plato: "Ensalada",    precio: 8.00,  listo: false },
- *      { id: 3, cliente: "Marta", plato: "Chuletón",    precio: 22.00, listo: true  },
- *      { id: 4, cliente: "Pedro", plato: "Gazpacho",    precio: 6.50,  listo: false },
- *      { id: 5, cliente: "Sofía", plato: "Risotto",     precio: 16.00, listo: true  },
- *      { id: 6, cliente: "Jorge", plato: "Hamburguesa", precio: 11.00, listo: false },
- *    ];
- *
+
+   const pedidos = [
+     { id: 1, cliente: "Ana",   plato: "Paella",      precio: 14.50, listo: true  },
+     { id: 2, cliente: "Luis",  plato: "Ensalada",    precio: 8.00,  listo: false },
+     { id: 3, cliente: "Marta", plato: "Chuletón",    precio: 22.00, listo: true  },
+     { id: 4, cliente: "Pedro", plato: "Gazpacho",    precio: 6.50,  listo: false },
+     { id: 5, cliente: "Sofía", plato: "Risotto",     precio: 16.00, listo: true  },
+     { id: 6, cliente: "Jorge", plato: "Hamburguesa", precio: 11.00, listo: false },
+   ];
+ /*
  *    - Usa forEach para mostrar cada pedido: "Pedido #1 — Ana — Paella — 14.50€".
  *    - Usa filter para obtener solo los pedidos que ya están listos.
  *    - Usa map para añadir a cada pedido una propiedad "precioConIva" (precio * 1.21).
@@ -66,6 +62,92 @@ const playlist = [
  *      Pista: primero extrae los platos con map.
  *
  * */
+
+
+
+
+
+   const cadena = pedidos.map(element=> element.plato).toString()
+console.log(cadena);
+
+
+
+
+pedidos.toReversed().forEach(element => {
+    
+     console.log(element);
+     
+
+});
+
+
+   const pedidos1  = pedidos.with(1,{
+     ...pedidos[1],
+     listo: true
+   })
+    
+   
+
+
+
+   const mayorA20 = pedidos.some(elemento=> elemento.precio > 20)
+   console.log(mayorA20);
+   const listoss = pedidos.every(elemento=> elemento.listo)
+   console.log(listoss);
+   
+
+     const marta = pedidos.find(elemento=> elemento.cliente === "Marta")
+
+console.log(marta.id);
+
+
+
+   const numero = pedidos.reduce((acumulador,elemento)=>(acumulador+= elemento.precio),0)
+
+
+   console.log(numero);
+   console.log(1);
+   
+   
+
+
+
+
+
+
+pedidos.forEach(element => {
+     console.log(element.cliente);
+     
+     
+});
+
+const listos = pedidos.filter(elemento => elemento.listo)
+
+
+
+listos.forEach(element => {
+     console.log(element.listo);
+});
+
+const mapa = pedidos.map(elemento => {
+     return {
+          ...elemento,
+          precioConIva: elemento.precio *1.21
+
+
+     }
+})
+
+
+mapa.forEach(element => {
+     console.log(element.precioConIva);
+});
+
+
+
+
+
+
 
 
 /*
@@ -94,10 +176,7 @@ const playlist = [
  *    - Usa toString para obtener una cadena con todos los nombres de los jugadores.
  *      Pista: primero extrae los nombres con map.
  *
- * */
-
-
-/*
+ * 
  * 9. Liga de fútbol — jornada de partidos
  *
  *    const partidos = [
@@ -146,7 +225,7 @@ const playlist = [
  *      de la última jornada a la primera.
  *
  * 
- * */
+ * 
 
 const separator = () => {
      console.log("\n \n ");
@@ -349,7 +428,7 @@ console.log("Ej 10:");
  *
  *    - Usa map y toString para obtener una cadena con todos los nombres.
  *
- * */
+ * 
 
 
 const alumnos = [
@@ -457,7 +536,7 @@ for(let s of suspenso){
 
 
 
-
+*/
 
 
 
