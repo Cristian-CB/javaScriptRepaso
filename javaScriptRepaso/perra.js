@@ -1,73 +1,16 @@
-
-
-
-
-/*
-## Ejercicio 3
-
-Tienes este array de alumnos con sus notas:
-
-```*/
-const alumnos = [
-    {nombre: "Ana", notas: [8, 7, 9, 6]},
-    {nombre: "Luis", notas: [4, 5, 3, 6]},
-    {nombre: "Maria", notas: [10, 9, 8, 10]},
-    {nombre: "Pedro", notas: [5, 4, 6, 3]},
-    {nombre: "Sofia", notas: [7, 8, 7, 9]},
-];
-
-
-const alumnos1 = 
-
-alumnos.map(elemento => {
-  const suma = elemento.notas.reduce((acumulador,nota)=>{
-  return acumulador + nota;
-  },0)
-
-  
-  return{
-    ...elemento,
-    notas : suma / elemento.notas.length
-
-  };
-});
-console.log(alumnos1);
-
-
-
-let aprobados1 = alumnos1.filter(elemento1 => elemento1.notas > 5)
-.map(elemento => {
-  return { 
-    nombre : elemento.nombre,
-    nota : elemento.notas
-  }
-}
-
-
-)
-console.log(aprobados1);
-
-let algn = alumnos1.some(elemento=> elemento.notas===10)
-
-console.log(algn);
-
-
-/*
-```
-
-a) Crea un nuevo array donde cada elemento sea un objeto con el nombre del alumno y su media de notas *(redondeada a 2 decimales)*
-`Resultado esperado: [ {nombre: "Ana", media: 7.50} ]`
-
-b) Filtra y devuelve solo los alumnos aprobados (media >= 5).
-
-c) ¿Algún alumno tiene alguna nota perfecta (10)?. Retorna true o false usando un método de iteración avanzado.
-
-
----
-*/
 /*
 
-## Ejercicio 4
+
+
+
+
+
+
+
+
+
+
+
 
 Crea una función llamada "crearPila" que implemente una estructura de datos tipo pila (stack) usando un closure.
 
@@ -79,7 +22,7 @@ La función principal (crearPila) NO DEBE recibir parámetros y debe retornar un
 
 IMPORTANTE: La pila (el array interno) NO debe ser accesible desde fuera.
 
-```
+
 Ejemplo:
 const pila = crearPila();
 pila.apilar(1);
@@ -91,10 +34,81 @@ console.log(pila.desapilar()) // 3
 console.log(pila.tope()) // 2
 console.log(pila.tamano()) // 2
 
-```
+*/
 
----
 
+let stack =[0,1]
+
+console.log(stack[stack.length -1]);
+
+console.log(stack);
+
+
+
+function crearPila(){
+
+  stack=[]
+function apilar (valor) {
+  stack.push(valor)
+}
+function desapilar () {
+  if (stack.length !=0) {
+    
+    return stack.pop()
+  }
+  return null
+  
+}
+function tope () {
+  if (stack.length !=0) {
+    
+    return stack[stack.length-1]
+  }
+  return null
+
+  
+}
+function tamano () {
+
+  return stack.length
+  
+}
+return{
+  apilar,
+  desapilar,
+  tope,
+  tamano
+
+}
+}
+
+
+const pila = crearPila()
+
+pila.apilar(1)
+pila.apilar(2)
+pila.apilar(3)
+
+
+console.log(pila.tope()) // 3
+console.log(pila.desapilar()) // 3
+
+console.log(pila.tope()) // 2
+console.log(pila.tamano())
+
+
+class cuentaBancaria{
+
+ constructor(titular,saldoInicial){
+  this._titulartitular = titular
+  this._saldoInicial = saldoInicial
+
+ }
+
+ 
+
+}
+/*
 ## Ejercicio 5
 
 Crea una clase llamada "CuentaBancaria" con:
