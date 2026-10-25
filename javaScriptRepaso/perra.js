@@ -2,8 +2,9 @@
 
 
 
+
 /*
-<<<<<<< HEAD
+
 # Ejercicios
 
 ---
@@ -155,8 +156,21 @@ c) ¿Algún alumno tiene alguna nota perfecta (10)?. Retorna true o false usando
 
 ---
 
+=======
+/*
+>>>>>>> master
 
-## Ejercicio 4
+
+
+
+
+
+
+
+
+
+
+
 
 Crea una función llamada "crearPila" que implemente una estructura de datos tipo pila (stack) usando un closure.
 
@@ -168,7 +182,7 @@ La función principal (crearPila) NO DEBE recibir parámetros y debe retornar un
 
 IMPORTANTE: La pila (el array interno) NO debe ser accesible desde fuera.
 
-```
+
 Ejemplo:
 const pila = crearPila();
 pila.apilar(1);
@@ -180,10 +194,81 @@ console.log(pila.desapilar()) // 3
 console.log(pila.tope()) // 2
 console.log(pila.tamano()) // 2
 
-```
+*/
 
----
 
+let stack =[0,1]
+
+console.log(stack[stack.length -1]);
+
+console.log(stack);
+
+
+
+function crearPila(){
+
+  stack=[]
+function apilar (valor) {
+  stack.push(valor)
+}
+function desapilar () {
+  if (stack.length !=0) {
+    
+    return stack.pop()
+  }
+  return null
+  
+}
+function tope () {
+  if (stack.length !=0) {
+    
+    return stack[stack.length-1]
+  }
+  return null
+
+  
+}
+function tamano () {
+
+  return stack.length
+  
+}
+return{
+  apilar,
+  desapilar,
+  tope,
+  tamano
+
+}
+}
+
+
+const pila = crearPila()
+
+pila.apilar(1)
+pila.apilar(2)
+pila.apilar(3)
+
+
+console.log(pila.tope()) // 3
+console.log(pila.desapilar()) // 3
+
+console.log(pila.tope()) // 2
+console.log(pila.tamano())
+
+
+class cuentaBancaria{
+
+ constructor(titular,saldoInicial){
+  this._titulartitular = titular
+  this._saldoInicial = saldoInicial
+
+ }
+
+ 
+
+}
+/*
 ## Ejercicio 5
 
 Crea una clase llamada "CuentaBancaria" con:
