@@ -3,6 +3,7 @@
 
 
 /*
+<<<<<<< HEAD
 # Ejercicios
 
 ---
@@ -89,11 +90,12 @@ console.log(mayor);
 
 
 /*
+
 ## Ejercicio 3
 
 Tienes este array de alumnos con sus notas:
 
-```
+ master
 const alumnos = [
     {nombre: "Ana", notas: [8, 7, 9, 6]},
     {nombre: "Luis", notas: [4, 5, 3, 6]},
@@ -101,6 +103,46 @@ const alumnos = [
     {nombre: "Pedro", notas: [5, 4, 6, 3]},
     {nombre: "Sofia", notas: [7, 8, 7, 9]},
 ];
+
+
+
+const alumnos1 = 
+
+alumnos.map(elemento => {
+  const suma = elemento.notas.reduce((acumulador,nota)=>{
+  return acumulador + nota;
+  },0)
+
+  
+  return{
+    ...elemento,
+    notas : suma / elemento.notas.length
+
+  };
+});
+console.log(alumnos1);
+
+
+
+let aprobados1 = alumnos1.filter(elemento1 => elemento1.notas > 5)
+.map(elemento => {
+  return { 
+    nombre : elemento.nombre,
+    nota : elemento.notas
+  }
+}
+
+
+)
+console.log(aprobados1);
+
+let algn = alumnos1.some(elemento=> elemento.notas===10)
+
+console.log(algn);
+
+
+/*
+>>>>>>> master
 ```
 
 a) Crea un nuevo array donde cada elemento sea un objeto con el nombre del alumno y su media de notas *(redondeada a 2 decimales)*
@@ -112,6 +154,7 @@ c) ¿Algún alumno tiene alguna nota perfecta (10)?. Retorna true o false usando
 
 
 ---
+
 
 ## Ejercicio 4
 
