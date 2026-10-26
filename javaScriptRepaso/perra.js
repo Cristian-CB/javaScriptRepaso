@@ -307,7 +307,7 @@ class cuentaBancaria {
     this.historial=[]
 
   }
-   ingresar(cantidad) {
+    ingresar(cantidad) {
     this.saldoInicial+=cantidad;
     this.historial.push("ingreso: " + cantidad + " saldo: " + this.saldoInicial)
     
@@ -340,3 +340,13 @@ cuentaArturo.ingresar(200)
 cuentaArturo.ingresar(200)
 cuentaArturo.ingresar(200)
 cuentaArturo.verHistorial()
+
+
+
+
+
+
+
+
+
+
