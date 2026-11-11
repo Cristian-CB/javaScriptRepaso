@@ -37,6 +37,40 @@ console.log(total);
 
 /* 6 BUSQUEDA DE ELEMENTO MAYOR*/
 
+const reciente = misiones.reduce((mayor, actual) => {
+    if (actual.fecha > mayor.fecha) {
+        return actual;
+    } else {
+        return mayor;
+    }
+});
 
+console.log(reciente);
+
+
+const numeros = [5, 2, 8, 1, 4];
+
+const ordenados = numeros.reduce((acumulador, actual) => {
+
+    acumulador.push(actual);
+
+    acumulador.sort((a, b) => a - b);
+
+    return acumulador;
+
+}, []);
+
+console.log(ordenados);
+
+
+const empleadosOrdenados = empleados.reduce((acumulador, actual) => {
+
+    acumulador.push(actual);
+
+    acumulador.sort((a, b) => a.salario - b.salario);
+
+    return acumulador;
+
+}, []);
 
 
